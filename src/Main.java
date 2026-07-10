@@ -1,12 +1,41 @@
-import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args)
+            throws SQLException {
+        StudentDAO studentDAO = new StudentDAO();
+        CourseDAO courseDAO= new CourseDAO();
+        Student student = new Student("Aline", "aline@gmail.com,2") {
+            @Override
+            public double calculateGPA() {
+                return 0;
+            }
+        };
+        studentDAO.insertvalues(student);
+    }
+
+
+      throws void SQLException{
+        CourseDAO courseDAO = null;
+        try {
+            courseDAO = new CourseDAO();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        Course course = new Course(2,"networking","cs101");
+        try {
+            courseDAO.insertValues(course);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
         Scanner scanner = new Scanner(System.in);
-        while (true) {
+    boolean running=true;
+        while(running ) {
             System.out.println("===== University Management System =====");
             System.out.println("1. Add Student");
             System.out.println("2. Enroll Student in Course");
@@ -45,8 +74,11 @@ public class Main {
                         break;
 
                     case 4:
-                        System.out.println("Exiting Application.");
-                        return;
+                        System.out.println("Exiting Application.");{
+                            running=false;
+                            break;
+                        }
+
 
                     default:
                         System.out.println("Invalid option. Please choose 1-4.");
@@ -57,17 +89,16 @@ public class Main {
                 System.out.println("Database Error occurred: " + e.getMessage());
             }
         }
-        //Person person = new Person("aline", "aline@gmail.com", 12);
-       // Undergraduate student1 = new Undergraduate("joy", "joy@gmail.com", 23, 78.4, 89.2, 83.2);
-       // System.out.println(student1.getName() + "GPA:" + student1.calculateGPA());
-       // student1.calculateGPA();
-       // Graduate student2 = new Graduate("john", "john@gmail.com", 34, 85);
-       // System.out.println(student2.getName() + "GPA:" + student2.calculateGPA());
-       // student2.calculateGPA();
-       // Instructor instructor = new Instructor("head of department", "school@gmail.com", 11, "EHS", 07);
-       // DataConnection conn= new DataConnection();
+       // Person person = new Person("aline", "aline@gmail.com", 12);
+//       Undergraduate student1 = new Undergraduate("joy", "joy@gmail.com", 23, 78.4, 89.2, 83.2);
+//        System.out.println(student1.getName() + "GPA:" + student1.calculateGPA());
+//       student1.calculateGPA();
+//        Graduate student2 = new Graduate("john", "john@gmail.com", 34, 85);
+//        System.out.println(student2.getName() + "GPA:" + student2.calculateGPA());
+//        student2.calculateGPA();
+        Instructor instructor = new Instructor("head of department", "school@gmail.com", 11, "EHS", 07);
+        DataConnection conn= new DataConnection();
+
 
     }
-}
-
 

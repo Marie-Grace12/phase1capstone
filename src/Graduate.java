@@ -1,7 +1,7 @@
 public class Graduate extends Student{
     private double thesisScore;
     public Graduate(String name, String userName, int id,double thesisScore) {
-        super(name, userName, id);
+        super(name, userName);
         this.thesisScore=thesisScore;
     }
 

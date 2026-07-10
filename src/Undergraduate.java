@@ -4,7 +4,7 @@ public class Undergraduate extends Student{
     private double finalExamGrade;
     private double average;
     public Undergraduate(String name, String userName, int id,double midTermGrade,double finalExamGrade,double average) {
-        super(name, userName, id);
+        super(name, userName);
         this.midTermGrade=midTermGrade;
         this.finalExamGrade=finalExamGrade;
         this.average=average;

@@ -1,18 +1,25 @@
 import java.sql.*;
 
 public class StudentDAO{
+    private Connection connection;
+    public StudentDAO()throws SQLException{
+        connection=DataConnection.createConnection();
+    }
 
-    public static void insertStudent(String name, String userName, int id)
-            throws SQLException {
-        String sql = "INSERT INTO students (name, userName,id) VALUES (?, ?, ?)";
-        DatabaseMetaData DatabaseConnection = null;
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-            stmt.setString(1, name);
-            stmt.setString(2, userName);
-            stmt.setInt(3,id);
-            stmt.executeUpdate();
-        }
+    public static void insertStudent(String john, String mail, int i) {
+    }
+
+    public void createTable() throws SQLException {
+
+    }
+    public void insertValues(Student student)throws SQLException{
+        String insertSql="insert into Student (id,name,user_name)values(???)";
+        PreparedStatement statement=connection.prepareStatement(insertSql);
+        statement.setInt(1,student.getId());
+        statement.setString(2,student.getName());
+        statement.setString(3,student.getUserName());
+        statement.executeUpdate();
+        System.out.println("values are inserted");
     }
 
     public static void enrollstudent(int id, String courseCode) throws SQLException {
@@ -46,7 +53,11 @@ public class StudentDAO{
             }
         }
     }
+
+    public void insertvalues(Student student) {
+    }
 }
+
 
 
 
