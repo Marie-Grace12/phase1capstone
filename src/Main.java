@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args)
             throws SQLException {
         StudentDAO studentDAO = new StudentDAO();
-        CourseDAO courseDAO= new CourseDAO();
+        CourseDAO courseDAO = new CourseDAO();
         Student student = new Student("Aline", "aline@gmail.com,2") {
             @Override
             public double calculateGPA() {
@@ -15,26 +15,11 @@ public class Main {
             }
         };
         studentDAO.insertvalues(student);
-    }
 
 
-      throws void SQLException{
-        CourseDAO courseDAO = null;
-        try {
-            courseDAO = new CourseDAO();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        Course course = new Course(2,"networking","cs101");
-        try {
-            courseDAO.insertValues(course);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
         Scanner scanner = new Scanner(System.in);
-    boolean running=true;
+        boolean running=true;
         while(running ) {
             System.out.println("===== University Management System =====");
             System.out.println("1. Add Student");
@@ -88,7 +73,7 @@ public class Main {
             } catch (Exception e) {
                 System.out.println("Database Error occurred: " + e.getMessage());
             }
-        }
+        }}
        // Person person = new Person("aline", "aline@gmail.com", 12);
 //       Undergraduate student1 = new Undergraduate("joy", "joy@gmail.com", 23, 78.4, 89.2, 83.2);
 //        System.out.println(student1.getName() + "GPA:" + student1.calculateGPA());
@@ -98,7 +83,20 @@ public class Main {
 //        student2.calculateGPA();
         Instructor instructor = new Instructor("head of department", "school@gmail.com", 11, "EHS", 07);
         DataConnection conn= new DataConnection();
+    public void saveCourse()  throws SQLException{
+        CourseDAO courseDAO = null;
+        try {
+            courseDAO = new CourseDAO();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        Course course = new Course(2,"networking","cs101");
+        try {
+            courseDAO.insertValues(course);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
 
-    }
+    }}
 
